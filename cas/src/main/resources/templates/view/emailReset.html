@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+    <title>个人注册</title>
+    <link type="text/css" rel="stylesheet" href="css/register.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+</head>
+<body>
+<div id="form-header" class="header">
+    <div class="logo-con w clearfix">
+        <a href="#" class="logo">
+        </a>
+        <div class="logo-title">欢迎注册</div>
+    </div>
+</div>
+<div class="container w">
+    <div class="main clearfix" id="form-main">
+        <form action="" id="reset-email" method="post">
+            <div class ="form-group">
+                <div class="form-item">
+                    <label>邮 箱 验 证</label>
+                    <input type="text" name="email" id="resetEmail" class="item-text" autocomplete="off" placeholder="建议使用常用邮箱">
+                </div>
+            </div>
+            <div class ="form-group">
+                <div class="form-item form-item-authcode">
+                    <label>验　证　码</label>
+                    <input type="text" autocomplete="off" name="authCode" id="resetCode" class="item-text" placeholder="请输入验证码">
+                    <img class="img-code" title="换一换" id="imgAuthCode">
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn-register">确定</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+    <script src="js/emailReset.js"></script>
+</body>
+</html>
+
+

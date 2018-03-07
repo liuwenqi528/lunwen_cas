@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>欢迎登录</title>
+    <link type="text/css" rel="stylesheet" href="css/login.css" th:href="@{/css/login.css}">
+    <script src="../static/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script src="../static/js/jquery.validate.min.js" th:src="@{/js/jquery.validate.min.js}"></script>
+    <script src="../static/js/addMethod.js" th:src="@{/js/addMethod.js}"></script>
+</head>
+<body>
+<!-- SDK 登录 -->
+<div class="w">
+    <div id="logo">
+        <a href="">
+            <img src="images/logo.png" alt="京东" width="170" height="60">
+        </a>
+        <b></b>
+    </div>
+</div>
+<div id="content">
+    <div class="login-wrap">
+        <div class="w">
+            <div class="login-form">
+                <div class="login-box">
+                    <div class="mt tab-h">
+                    </div>
+                    <div class="msg-wrap">
+                        <div class="msg-error hide"><b></b></div>
+                    </div>
+                    <div class="mc">
+                        <div class="form">
+                            <form id="formlogin" method="post" th:action="@{/login}">
+                                <input type="hidden" name="execution" th:value="${flowExecutionKey}"/>
+                                <input type="hidden" name="_eventId" value="submit"/>
+                                <div class="form-group">
+                                    <div class="item item-fore1">
+                                        <label for="username" class="login-label name-label"></label>
+                                        <input id="username" type="text" class="itxt" name="username" tabindex="1" autocomplete="off" placeholder="邮箱/用户名/已验证手机">
+                                        <span class="clear-btn"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div id="entry" class="item item-fore2" style="visibility: visible;">
+                                        <label class="login-label pwd-label" for="password"></label>
+                                        <input type="password" id="password" name="password" class="itxt itxt-error" tabindex="2" autocomplete="off" placeholder="密码">
+                                        <span class="clear-btn"></span>
+                                        <span class="capslock" style="display: none;">
+                                        <b></b>大小写锁定已打开
+                                    </span>
+                                    </div>
+                                </div>
+
+                                <div id="o-authcode" class="item item-vcode item-fore3  hide ">
+                                    <input id="authcode" type="text" class="itxt itxt02" name="authcode" tabindex="3">
+                                    <img id="JD_Verification1" class="verify-code">
+                                    <a href="javascript:void(0)" onclick="$('#JD_Verification1').click();">看不清换一张</a>
+                                </div>
+                                <div class="item item-fore4">
+                                    <div class="safe">
+                                        <span></span>
+                                        <span class="forget-pw-safe">
+											<a href="" class="" target="_blank" style="outline: rgb(109, 109, 109) none 0px;">忘记密码</a>
+										</span>
+                                    </div>
+                                </div>
+                                <div class="item item-fore5">
+                                    <div class="login-btn">
+                                        <button class="btn-img btn-entry" id="loginsubmit" tabindex="6" >登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="coagent" id="kbCoagent">
+                    <ul>
+                        <li>
+                            <b></b>
+                            <a href="javascript:void(0)" onclick="window.location='//qq.jd.com/new/qq/login.aspx'+window.location.search;return false;" class="pdl"><b class="QQ-icon"></b><span>QQ</span></a>
+                            <span class="line">|</span>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" onclick="window.location='//qq.jd.com/new/wx/login.action'+window.location.search;return false;" class="pdl"><b class="weixin-icon"></b><span>微信</span></a>
+                        </li>
+                        <li class="extra-r">
+                            <div>
+                                <div class="regist-link"><a href="" target="_blank"><b></b>立即注册</a></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="login-banner">
+            <div class="w">
+                <div id="banner-bg" class="i-inner"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../static/js/login.js" th:src="@{/js/login.js}"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+/*头部区域*/
+a {
+    color: #666;
+    text-decoration: none;
+}
+.form-group{
+    height:84px;
+}
+.form-item .item-text:focus{
+    border:none;
+    outline:0;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.header {
+    height: 110px;
+    background: url(//misc.360buyimg.com/user/reg/1.0.0/css/i/headbg.jpg) repeat-x left bottom;
+}
+.header .w{
+    width: 1210px;
+    margin:0 auto;
+}
+.header .logo, .i-company, .i-def, .i-error, .i-error1, .i-global, .i-suc {
+    background: url(//misc.360buyimg.com/user/reg/1.0.0/css/i/icon.png) no-repeat;
+}
+.header .logo {
+    width: 160px;
+    height: 50px;
+    float: left;
+    margin-top: 24px;
+}
+.header .logo-title {
+    float: left;
+    height: 34px;
+    line-height: 34px;
+    font-size: 24px;
+    color: #333;
+    padding-left: 20px;
+    margin-top: 34px;
+}
+.header .have-account {
+    font-size: 16px;
+    float: right;
+    margin-top: 55px;
+    color: #999;
+}
+.header .have-account a {
+    color: #333;
+}
+
+/**/
+.item{
+    height: 56px;
+    line-height: 30px;
+    margin: 10px;
+}
+
+.item .item-label{
+    float: left;
+    width: 80px;
+    text-align: right;
+}
+
+.item-select{
+    float: left;
+    height: 30px;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+    font-size: 14px;
+    padding: 6px 0px;
+}
+
+.item-file{
+    float: left;
+    height: 30px;
+    margin-left: 10px;
+    font-size: 14px;
+    padding: 6px 0px;
+}
+
+.item-submit{
+    float: left;
+    height: 30px;
+    width: 50px;
+    margin-left: 90px;
+    font-size: 14px;
+}
+
+/*input.error{*/
+/*border: 1px solid #E6594E;*/
+/*}*/
+
+/*input.highlight{*/
+/*border: 1px solid #7abd54;*/
+/*}*/
+
+label.error{
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 5px;
+    padding-left: 35px;
+    color: red;
+    background: url('../image/error.png') no-repeat left center;
+}
+
+label.tip{
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 5px;
+    padding-left: 35px;
+    color: #aaa;
+    background: url('../images/tip.png') no-repeat left center;
+    padding-left: 35px;
+}
+
+.main {
+    margin: 50px auto 60px;
+    width: 400px;
+}
+.form-item {
+    position: relative;
+    border: solid 1px #ddd;
+    width: 398px;
+    height: 52px;
+    z-index: 0;
+}
+.form-item-account {
+    z-index: 13;
+}
+.form-item label {
+    float: left;
+    width: 90px;
+    height: 52px;
+    line-height: 52px;
+    padding-left: 20px;
+}
+.form-item .item-text {
+    border: 0 none;
+    font-size: 14px;
+    width: 190px;
+    height: 19px;
+    padding-bottom: 11px;
+    padding-left: 20px;
+    padding-top: 16px;
+}
+.form-item .i-status {
+    position: absolute;
+    display: none;
+    width: 16px;
+    height: 16px;
+    top: 20px;
+    right: 20px;
+}
+
+.tips {
+    position: absolute;
+    background: #fef4e5;
+    border: solid 1px #f6c090;
+    color: #bc5212;
+    display: none;
+    padding: 0 12px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 3px;
+    z-index: 11;
+}
+.capslock-tip {
+    right: 2px;
+    top: -45px;
+}
+.item-phone-wrap .orEmail {
+    position: absolute;
+    right: 0;
+    bottom: 6px;
+    font-size: 12px;
+}
+.item-phone-wrap .orEmail a {
+    color: #38f;
+}
+.form-item .img-code {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    width: 110px;
+    height: 46px;
+    cursor: pointer;
+}
+.form-item .form-authcode, .form-item .phonecode {
+    width: 150px;
+}
+.btn-phonecode {
+     position: absolute;
+     right: 3px;
+     top: 3px;
+     width: 110px;
+     height: 46px;
+     border: none;
+     background: #f2f2f2;
+     color: #333;
+     padding: 0;
+}
+.btn-register {
+    width: 100%;
+    height: 54px;
+    color: #fff;
+    background: #e22;
+    border: 0;
+    font-size: 16px;
+    font-family: "Microsoft YaHei","Hiragino Sans GB";
+}
+/**/
+.reg-other {
+    float: left;
+    margin-left: 104px;
+    height: 605px;
+    padding-left: 90px;
+    border-left: solid 1px #e6e6e6;
+}
+.reg-other .company-reg {
+    width: 160px;
+    height: 60px;
+    border-bottom: solid 1px #ddd;
+    margin-left: 30px;
+}
+.reg-other .company-reg a {
+    display: block;
+    width: 160px;
+    height: 30px;
+}
+.reg-other .company-reg a i {
+    display: inline-block;
+    width: 30px;
+    height: 29px;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+.i-company {
+    background-position: 0 -50px;
+}
+.reg-other .company-reg a span {
+    vertical-align: middle;
+}
+.reg-other .inter-cust {
+    width: 160px;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.reg-other .inter-cust a {
+    display: block;
+    width: 175px;
+    height: 40px;
+}
+.reg-other .inter-cust a i {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: text-bottom;
+    margin-right: 15px;
+    float: left;
+    margin-top: 7px;
+}
+.i-global {
+    background-position: -50px -50px;
+}
+.reg-other .inter-cust a span {
+    display: inline-block;
+}
+/**/
+.footer {
+    font-size: 12px;
+    text-align: center;
+    border-top: solid 1px #e6e6e6;
+    color: #999;
+    padding-bottom: 30px;
+}
+.footer .links {
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+.footer a {
+    color: #999;
+    margin: 0 10px;
+}
+.email-suggest{
+    display:none;
+}
+#country_code_layer{
+    display: none;
+}

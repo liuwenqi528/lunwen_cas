@@ -1,0 +1,171 @@
+<!--  Created by   liuwenqi on 2018-01-26. -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>修改密码</title>
+    <link type="text/css" rel="stylesheet" href="css/changePwd.css" th:href="@{/css/changePwd.css}">
+    <script src="js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"
+        th:src="@{}"></script>
+    <script src="js/changePwd.js"></script>
+</head>
+<body>
+<div class="main">
+    <div class="mod-main mod-comm">
+        <div class="mt">
+            <h3>修改登录密码</h3>
+        </div>
+        <div class="mc">
+            <div id="sflex03" class="stepflex ">
+                <dl class="first doing">
+                    <dt class="s-num">1</dt>
+                    <dd class="s-text">验证身份<s></s><b></b></dd>
+                    <dd></dd>
+                </dl>
+                <dl class="normal">
+                    <dt class="s-num">2</dt>
+                    <dd class="s-text">修改登录密码<s></s><b></b></dd>
+                </dl>
+                <dl class="last">
+                    <dt class="s-num">&nbsp;</dt>
+                    <dd class="s-text">完成<s></s><b></b></dd>
+                </dl>
+            </div>
+            <!--短信验证-->
+            <div class="form changeStep">
+                <div class="item">
+                    <span class="label">已验证手机：</span>
+                    <div class="fl">
+                        <strong id="mobileSpan" class="ftx-un">156*****764</strong>
+                        <!--<b><a href="https://safe.jd.com/validate/password/updatePassword.action?type=email">通过已验证邮箱验证</a></b>&nbsp;&nbsp;-->
+                        <!--<b><a href="https://safe.jd.com/validate/password/updatePassword.action?type=payPwd">通过支付密码验证</a></b>&nbsp;&nbsp;-->
+                        <div class="clr"></div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="item">
+                    <span class="label">请填写手机校验码：</span>
+                    <div class="fl">
+                        <input class="itxt" name="code" tabindex="1" id="code" onchange="checkCode();"
+                               disabled="disabled" type="text">
+                        <a onclick="sendCode();" href="javascript:void(0)"
+                           id="sendMobileCode" class="btn btn-10 ml10"><s></s>获取短信校验码</a>
+                        <div class="clr"></div>
+                        <div id="countDown" class="msg-text" style="display:none;">
+                            校验码已发出，请注意查收短信，如果没有收到，你可以在<strong class="ftx-01">120</strong>秒后要求系统重新发送
+                        </div>
+                        <div class="msg-error" id="sendCode_error" style="display: none;"></div>
+                        <div class="msg-error" id="code_error" style="display:none"></div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="item">
+                    <span class="label">验证码：</span>
+                    <div class="fl">
+                        <input class="itxt" onchange="checkAuthCode();" tabindex="2" name="authCodeStep1"
+                               id="authCode" type="text">
+                        <label><img id="xy_verification1" class="ml10"
+                                    onclick="verc('xy_verification1')"
+                                    src="http://192.168.1.222:8090/xueyuan-user/images/captcha.svl"
+                                    alt="验证码" style="cursor:pointer;width:100px;height:26px;">看不清？<a
+                                href="javascript:verc('xy_verification1');"
+                                class="ftx-05">换一张</a></label>
+                        <div class="clr"></div>
+                        <div id="authCode_error" class="msg-error"></div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+
+                <div class="item">
+                    <span class="label">&nbsp;</span>
+                    <div class="fl">
+                        <a id="submitCode" disabled="disabled" class="btn btn-5" href="javascript:void(0);"
+                           onclick="validCode();">提交</a>
+                        <span class="ml10" id="appealSpan" style="">无法验证身份？试试 <a id="autoAppeal"
+                                                                                 onclick="autoAppeal()"
+                                                                                 href="javascript:void(0);"
+                                                                                 class="ftx-05"
+                                                                                 clstag="pageclick|keycount|201604222|1">账户申诉</a></span>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+            <!--修改密码-->
+            <div class="form">
+                <div class="item">
+                    <span class="label"><span>*</span>新的登录密码：</span>
+                    <div class="fl">
+                        <input type="password" class="itxt" tabindex="1" name="password" onblur="passwordOnblur();"
+                               onfocus="passwordOnfocus('password');" id="password">
+                        <div class="clr"></div>
+                        <div class="msg-text" id="password_message" style="display: none;">
+                            由字母加数字或符号至少两种以上字符组成的6-20位半角字符，区分大小写
+                        </div>
+                        <div class="clr"></div>
+                        <div id="password_error" class="msg-error" style=""></div>
+                        <div class="clr"></div>
+                        <div id="strength" class="ir icon-s-00" style="display: none;"></div>
+                        <div class="clr"></div>
+                        <div class="msg-error" id="strength_error" style="display: none;"></div>
+                        <input type="hidden" id="passwordLevel" name="passwordLevel">
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="item">
+                    <span class="label"><span>*</span>请再输入一次密码：</span>
+                    <div class="fl">
+                        <input type="password" class="itxt" tabindex="2" onblur="isSamePassword();" name="rePassword"
+                               id="rePassword">
+                        <div class="clr"></div>
+                        <div id="rePassword_error" class="msg-error" style="display:none"></div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="item">
+                    <span class="label"><span>*</span>验证码：</span>
+                    <div class="fl">
+                        <input class="itxt" onchange="checkAuthCode();" tabindex="3" name="authCode" id="authCodeStep2"
+                               type="text">
+                        <label><img id="xy_verification2" class="ml10" onclick="verc('xy_verification2')"
+                                    src="//192.168.1.222:8090/xueyuan-user/images/captcha.svl"
+                                    alt="验证码" style="cursor:pointer;width:100px;height:26px;">看不清？<a
+                                href="javascript:verc('xy_verification2');"
+                                class="ftx-05">换一张</a></label>
+                        <div class="clr"></div>
+                        <div id="authCode_errorStep2" class="msg-error"></div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="item">
+                    <span class="label">&nbsp;</span>
+                    <div class="fl">
+                        <a class="btn-1" onclick="updatePassword()"
+                           href="javascript:void(0);"><b>提交</b></a></div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+            <div class="form">
+                <div class="safe-icon-box">
+                    <s class="icon-succ02 m-icon"></s>
+                    <div class="fore">
+                        <h3 class="ftx-02">恭喜您，修改密码成功！</h3>
+                        <div class="u-safe">
+                            最新安全评级：
+                            <i class="safe-rank06" id="cla"></i><strong class="rank-text ftx-02">最低级</strong>
+                        </div>
+                        <div class="ftx-03">继续访问 <a href="/user/paymentpassword/safetyCenter.action"
+                                                    class="ftx-05">安全中心</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+    });
+</script>
+</body>
+</html>
